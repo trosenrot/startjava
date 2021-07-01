@@ -1,24 +1,24 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int number = 17;
-        int numberPlayer = 50;
-        int correct = 10;
-        while (numberPlayer != number) {
-            System.out.println(numberPlayer);
-            if (numberPlayer > number) {
-            System.out.println("Данное число больше того, что загадал компьютер");
-            numberPlayer = numberPlayer - correct;
+        int secretNumber = 17;
+        int playerNumber = 50;
+        int step = 10;
+        while (playerNumber != secretNumber) {
+            System.out.println(playerNumber);
+            if (playerNumber > secretNumber) {
+                System.out.println("Данное число больше того, что загадал компьютер");
+                playerNumber -= step;
             } else {
-            System.out.println("Данное число меньше того, что загадал компьютер");
-            numberPlayer = numberPlayer + correct;
+                System.out.println("Данное число меньше того, что загадал компьютер");
+                playerNumber += step;
             }
-            if (correct <= 1) {
-                correct = 1;
+            if (step <= 1) {
+                step = 1;
             } else {
-                correct--;
+                step--;
             }
         }
-        System.out.println(numberPlayer);
+        System.out.println(playerNumber);
         System.out.println("Поздравляю, число угадано!");
     }
 }
