@@ -1,69 +1,13 @@
 public class Jaeger {
     private String modelName;
-    public String getModelName() {
-        return modelName;
-    }
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
     private String mark;
-    public String getMark() {
-        return mark;
-    }
-    public void setMark(String mark) {
-        this.mark = mark;
-    }
-
     private String origin;
-    public String getOrigin() {
-        return origin;
-    }
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
     private float height;
-    public float getHeight() {
-        return height;
-    }
-    public void setHeight(float height) {
-        this.height = height;
-    }
-
     private float weight;
-    public float getWeight() {
-        return weight;
-    }
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
     private int strenght;
-    public int getStrenght() {
-        return strenght;
-    }
-    public void setStrenght(int strenght) {
-        this.strenght = strenght;
-    }
-
-    private int speed;
-    public int getSpeed() {
-        return speed;
-    }
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
     private int armor;
-    public int getArmor() {
-        return armor;
-    }
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
 
-    public Jaeger() {
+        public Jaeger() {
         this("Bracer Phoenix", "Mark-5", "USA", 70.7f, 2.1f, 8, 10, 9);
     }
 
@@ -76,6 +20,71 @@ public class Jaeger {
         this.setStrenght(strenght);
         this.setSpeed(speed);
         this.setArmor(armor);
+    }
+
+    public String getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
+
+    public String getMark() {
+        return mark;
+    }
+
+    public void setMark(String mark) {
+        this.mark = mark;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public int getStrenght() {
+        return strenght;
+    }
+
+    public void setStrenght(int strenght) {
+        this.strenght = strenght;
+    }
+
+    private int speed;
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
     }
 
     public boolean drift() {

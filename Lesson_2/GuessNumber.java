@@ -12,30 +12,35 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public void game(){
+    public void play() {
             Scanner stringConsole = new Scanner(System.in);
             Random random = new Random();
-            secretNumber = random.nextInt(100);
+            secretNumber = random.nextInt(101);
+
         do {
             System.out.println(playerOne.getName() + " введите число: ");
             playerNumber = stringConsole.nextInt();
+
             if (playerNumber > secretNumber) {
                 System.out.println("Данное число больше того, что загадал компьютер");
             } else if (playerNumber < secretNumber) {
                 System.out.println("Данное число меньше того, что загадал компьютер");
             } else {
+                System.out.println("Поздравляю, число угадано " + playerOne.getName() + "!");
                 break;
             }
+
             System.out.println(playerTwo.getName() + " введите число: ");
             playerNumber = stringConsole.nextInt();
+
             if (playerNumber > secretNumber) {
                 System.out.println("Данное число больше того, что загадал компьютер");
             } else if (playerNumber < secretNumber) {
                 System.out.println("Данное число меньше того, что загадал компьютер");
             } else {
+                System.out.println("Поздравляю, число угадано " + playerTwo.getName() + "!");
                 break;
             }
         } while(true);
-        System.out.println("Поздравляю, число угадано!");
     }
 }
