@@ -3,42 +3,34 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        Scanner stringConsole = new Scanner(System.in);
-        boolean continuation;
+        Scanner console = new Scanner(System.in);
+        String answer;
         do {
             int x;
             do {
                 System.out.println("Введите первое число: ");
-                x = stringConsole.nextInt();
-            } while (!(calculator.setX(x)));
+                x = console.nextInt();
+            } while (!calculator.setX(x));
 
             char c;
             do {
                 System.out.println("Введите знак математической операции: ");
-                c = stringConsole.next().charAt(0);
-            } while (!(calculator.setC(c)));
+                c = console.next().charAt(0);
+            } while (!calculator.setMathSign(c));
 
             int y;
             do {
                 System.out.println("Введите второе число: ");
-                y = stringConsole.nextInt();
-            } while (!(calculator.setY(y)));
+                y = console.nextInt();
+            } while (!calculator.setY(y));
 
-            calculator.Calculation();
+            calculator.calculate();
 
+            console.nextLine();
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]: ");
-                String answer = stringConsole.next();
-                if (answer.equals("yes")) {
-                    continuation = true;
-                    break;
-                } else if (answer.equals("no")) {
-                    continuation = false;
-                    break;
-                } else {
-                    System.out.println("Некорректный ответ!");
-                }
-            } while (true); 
-        } while (continuation);
+                answer = console.next();
+            } while (!answer.equals("yes") && !answer.equals("no")); 
+        } while (answer.equals("yes"));
     }
 }

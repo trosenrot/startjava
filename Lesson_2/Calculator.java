@@ -1,47 +1,50 @@
 public class Calculator {
     private int x;
+    private int y;
+    private char mathSign;
+
+
     public int getX() {
         return x;
     } 
+
     public boolean setX(int x) {
         if (x > 0) {
             this.x = x;
             return true;
-        }
-        else {
+        } else {
             System.out.println("Введено некорректное значение! (число должно быть > 0)");
             return false;
         }
     }
 
-    private int y;
     public int getY() {
         return y;
     }
+
     public boolean setY(int y) {
         if (y > 0) {
             this.y = y;
             return true;
-        }
-        else {
+        } else {
             System.out.println("Введено некорректное значение! (число должно быть > 0)");
             return false;
         }
     }
 
-    private char c = '-';
-    public char getC() {
-        return c;
+    public char getMathSign() {
+        return mathSign;
     }
-    public boolean setC(char c) {
-        switch (c) {
+
+    public boolean setMathSign(char mathSign) {
+        switch (mathSign) {
             case '+' :
             case '-' :
             case '/' :
             case '*' :
             case '%' :
             case '^' :
-                this.c = c;
+                this.mathSign = mathSign;
                 return true;
             default :
                 System.out.println("Введено некорректное значение! (доступные операции: +, -, *, /, ^, %)");
@@ -49,8 +52,8 @@ public class Calculator {
         }
     }
 
-    public void Calculation() {
-        switch (c) {
+    public void calculate() {
+        switch (mathSign) {
             case '+' :
                 System.out.println(x + " + " + y + " = " + (x + y));
                 break;
