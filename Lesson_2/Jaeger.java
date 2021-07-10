@@ -6,8 +6,9 @@ public class Jaeger {
     private float weight;
     private int strenght;
     private int armor;
+    private int speed;
 
-        public Jaeger() {
+    public Jaeger() {
         this("Bracer Phoenix", "Mark-5", "USA", 70.7f, 2.1f, 8, 10, 9);
     }
 
@@ -70,7 +71,6 @@ public class Jaeger {
         this.strenght = strenght;
     }
 
-    private int speed;
     public int getSpeed() {
         return speed;
     }

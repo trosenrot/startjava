@@ -11,11 +11,11 @@ public class GuessNumber {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
     }
-
+    
     public void play() {
-            Scanner stringConsole = new Scanner(System.in);
-            Random random = new Random();
-            secretNumber = random.nextInt(101);
+        Scanner stringConsole = new Scanner(System.in);
+        Random random = new Random();
+        secretNumber = random.nextInt(101);
 
         do {
             System.out.println(playerOne.getName() + " введите число: ");

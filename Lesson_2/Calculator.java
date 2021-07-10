@@ -3,7 +3,6 @@ public class Calculator {
     private int y;
     private char mathSign;
 
-
     public int getX() {
         return x;
     } 

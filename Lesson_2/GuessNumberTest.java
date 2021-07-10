@@ -11,7 +11,6 @@ public class GuessNumberTest {
 
          do {
             GuessNumber game = new GuessNumber(playerOne, playerTwo);
-
             game.play();
 
             do {
