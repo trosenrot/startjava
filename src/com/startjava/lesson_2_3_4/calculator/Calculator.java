@@ -1,4 +1,4 @@
-package com.startjava.lesson_2_3.calculator;
+package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
     private int x;
@@ -53,30 +53,21 @@ public class Calculator {
         }
     }
 
-    public void calculate() {
+    public int calculate() {
         switch (mathSign) {
             case '+' :
-                System.out.println(x + " + " + y + " = " + (x + y));
-                break;
+                return Math.addExact(x, y);
             case '-' :
-                System.out.println(x + " - " + y + " = " + (x - y));
-                break;
+                return Math.subtractExact(x, y);
             case '/' :
-                System.out.println(x + " / " + y + " = " + (x / y));
-                break;
+                return Math.floorDiv(x, y);
             case '*' :
-                System.out.println(x + " * " + y + " = " + (x * y));
-                break;
+                return Math.multiplyExact(x, y);
             case '%' :
-                System.out.println(x + " * " + y + " = " + (x % y));
-                break;
+                return Math.floorMod(x, y);
             case '^' :
-                int result = 1;
-                for (int j = 0; j < y; j++) {
-                    result *= x;
-                }
-                System.out.println(x + " ^ " + y + " = " + result);
-                break;
+                return (int)Math.pow(x, y);
         }
+        return 0;
     }
 }
