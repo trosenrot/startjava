@@ -1,5 +1,7 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import static java.lang.Math.*;
+
 public class Calculator {
     private int x;
     private int y;
@@ -54,32 +56,31 @@ public class Calculator {
         }
     }
 
-    public boolean mathExpression(String expression) {
+    public boolean checkMathExpression(String expression) {
         mathExpression = expression.split(" ");
         x = Integer.parseInt(mathExpression[0]);
         mathSign = mathExpression[1].charAt(0);
         y = Integer.parseInt(mathExpression[2]);
         if (setX(x) && setMathSign(mathSign) && setY(y)) {
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     public int calculate() {
         switch (mathSign) {
             case '+' :
-                return Math.addExact(x, y);
+                return addExact(x, y);
             case '-' :
-                return Math.subtractExact(x, y);
+                return subtractExact(x, y);
             case '/' :
-                return Math.floorDiv(x, y);
+                return floorDiv(x, y);
             case '*' :
-                return Math.multiplyExact(x, y);
+                return multiplyExact(x, y);
             case '%' :
-                return Math.floorMod(x, y);
+                return floorMod(x, y);
             case '^' :
-                return (int)Math.pow(x, y);
+                return (int) pow(x, y);
         }
         return 0;
     }

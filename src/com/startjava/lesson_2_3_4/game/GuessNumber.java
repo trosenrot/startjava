@@ -1,5 +1,6 @@
 package com.startjava.lesson_2_3_4.game;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,28 +19,32 @@ public class GuessNumber {
         secretNumber = random.nextInt(101);
 
         for (int i = 0; i < 10; i++) {
-            if (inputNumber(playerOne, i)) {
-                out(i, i-1);
+            if (makeMove(playerOne, i)) {
+                outputNumbers(i, i-1);
                 break;
             }
-            if (inputNumber(playerTwo, i)) {
-                out(i, i);
+            if (makeMove(playerTwo, i)) {
+                outputNumbers(i, i);
                 break;
             }
         }
     }
 
-    private boolean inputNumber(Player player, int i) {
-        Scanner console = new Scanner(System.in);
-        System.out.print(player.getName() + " введите число: ");
-        player.setEnteredNumbers(i, console.nextInt());
+    private boolean makeMove(Player player, int i) {
+        inputNumber(player,i);
         return checkNumber(player, i);
     }
 
+    private void inputNumber(Player player, int i) {
+        Scanner console = new Scanner(System.in);
+        System.out.print(player.getName() + " введите число: ");
+        player.setEnteredNumber(i, console.nextInt());
+    }
+
     private boolean checkNumber(Player player, int i) {
-        if (player.getEnteredNumbers(i) > secretNumber) {
+        if (player.getEnteredNumber(i) > secretNumber) {
             System.out.println("Данное число больше того, что загадал компьютер");
-        } else if (player.getEnteredNumbers(i) < secretNumber) {
+        } else if (player.getEnteredNumber(i) < secretNumber) {
             System.out.println("Данное число меньше того, что загадал компьютер");
         } else {
             System.out.println("Игрок " + player.getName() + " угадал число " + secretNumber + " с " + (i + 1) + " попытки");
@@ -51,10 +56,18 @@ public class GuessNumber {
         return false;
     }
 
-    private void out (int i, int j) {
+    private void outputNumbers(int i, int j) {
         System.out.println("Игрок " + playerOne.getName() + " назвал числа:");
-        playerOne.outputNumbers(i);
+        outputArray(Arrays.copyOf(playerOne.outputNumbers(), i+1), i);
         System.out.println("Игрок " + playerTwo.getName() + " назвал числа:");
-        playerTwo.outputNumbers(j);
+        outputArray(Arrays.copyOf(playerTwo.outputNumbers(), j+1), j);
+    }
+
+    private void outputArray(int[] numbers, int i) {
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        Arrays.fill(numbers, 0, i+1, 0);
     }
 }
