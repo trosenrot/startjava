@@ -7,21 +7,12 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         Scanner console = new Scanner(System.in);
         String answer;
-
         do {
-            int x;
-            char mathSign;
-            int y;
-
             do {
                 System.out.print("Введите математическое выражение: ");
-                String[] mathExpression = console.nextLine().split(" ");
-                x = Integer.parseInt(mathExpression[0]);
-                mathSign = mathExpression[1].charAt(0);
-                y = Integer.parseInt(mathExpression[2]);
-            } while (!calculator.setX(x) || !calculator.setMathSign(mathSign) || !calculator.setY(y));
+            } while (calculator.mathExpression(console.nextLine()));
 
-            System.out.println(x + " " + mathSign + " " + y + " = " + calculator.calculate());
+            System.out.println(calculator.getX() + " " + calculator.getMathSign() + " " + calculator.getY() + " = " + calculator.calculate());
 
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]: ");

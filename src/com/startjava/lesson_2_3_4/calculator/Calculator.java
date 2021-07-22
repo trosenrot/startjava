@@ -4,6 +4,7 @@ public class Calculator {
     private int x;
     private int y;
     private char mathSign;
+    private String[] mathExpression;
 
     public int getX() {
         return x;
@@ -50,6 +51,18 @@ public class Calculator {
             default :
                 System.out.println("Введено некорректное значение! (доступные операции: +, -, *, /, ^, %)");
                 return false;
+        }
+    }
+
+    public boolean mathExpression(String expression) {
+        mathExpression = expression.split(" ");
+        x = Integer.parseInt(mathExpression[0]);
+        mathSign = mathExpression[1].charAt(0);
+        y = Integer.parseInt(mathExpression[2]);
+        if (setX(x) && setMathSign(mathSign) && setY(y)) {
+            return false;
+        } else {
+            return true;
         }
     }
 
