@@ -13,26 +13,33 @@ public class GuessNumber {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
     }
-    
+
     public void play() {
         Random random = new Random();
         secretNumber = random.nextInt(101);
 
         for (int i = 0; i < 10; i++) {
             if (makeMove(playerOne, i)) {
-                outputNumbers(i, i-1);
+                outputNumbers(playerOne, i);
+                outputNumbers(playerTwo, i - 1);
                 break;
             }
             if (makeMove(playerTwo, i)) {
-                outputNumbers(i, i);
+                outputNumbers(playerOne, i);
+                outputNumbers(playerTwo, i);
                 break;
             }
         }
     }
 
     private boolean makeMove(Player player, int i) {
-        inputNumber(player,i);
-        return checkNumber(player, i);
+        boolean check;
+        inputNumber(player, i);
+        check = checkNumber(player, i);
+        if (i == 9) {
+            System.out.println("У " + player.getName() + " закончились попытки");
+        }
+        return check;
     }
 
     private void inputNumber(Player player, int i) {
@@ -50,24 +57,16 @@ public class GuessNumber {
             System.out.println("Игрок " + player.getName() + " угадал число " + secretNumber + " с " + (i + 1) + " попытки");
             return true;
         }
-        if (i == 9) {
-            System.out.println("У " + player.getName() + " закончились попытки");
-        }
         return false;
     }
 
-    private void outputNumbers(int i, int j) {
-        System.out.println("Игрок " + playerOne.getName() + " назвал числа:");
-        outputArray(Arrays.copyOf(playerOne.outputNumbers(), i+1), i);
-        System.out.println("Игрок " + playerTwo.getName() + " назвал числа:");
-        outputArray(Arrays.copyOf(playerTwo.outputNumbers(), j+1), j);
-    }
-
-    private void outputArray(int[] numbers, int i) {
+    private void outputNumbers(Player player, int i) {
+        System.out.println("Игрок " + player.getName() + " назвал числа:");
+        int[] numbers = Arrays.copyOf(player.getEnteredNumbers(), i + 1);
         for (int number : numbers) {
             System.out.print(number + " ");
         }
         System.out.println();
-        Arrays.fill(numbers, 0, i+1, 0);
+        Arrays.fill(numbers, 0, i + 1, 0);
     }
 }

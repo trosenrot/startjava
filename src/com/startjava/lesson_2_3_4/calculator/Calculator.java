@@ -10,16 +10,15 @@ public class Calculator {
 
     public int getX() {
         return x;
-    } 
+    }
 
     public boolean setX(int x) {
         if (x > 0) {
             this.x = x;
             return true;
-        } else {
-            System.out.println("Введено некорректное значение! (число должно быть > 0)");
-            return false;
         }
+        System.out.println("Введено некорректное значение! (число должно быть > 0)");
+        return false;
     }
 
     public int getY() {
@@ -30,10 +29,9 @@ public class Calculator {
         if (y > 0) {
             this.y = y;
             return true;
-        } else {
-            System.out.println("Введено некорректное значение! (число должно быть > 0)");
-            return false;
         }
+        System.out.println("Введено некорректное значение! (число должно быть > 0)");
+        return false;
     }
 
     public char getMathSign() {
@@ -42,15 +40,15 @@ public class Calculator {
 
     public boolean setMathSign(char mathSign) {
         switch (mathSign) {
-            case '+' :
-            case '-' :
-            case '/' :
-            case '*' :
-            case '%' :
-            case '^' :
+            case '+':
+            case '-':
+            case '/':
+            case '*':
+            case '%':
+            case '^':
                 this.mathSign = mathSign;
                 return true;
-            default :
+            default:
                 System.out.println("Введено некорректное значение! (доступные операции: +, -, *, /, ^, %)");
                 return false;
         }
@@ -69,17 +67,17 @@ public class Calculator {
 
     public int calculate() {
         switch (mathSign) {
-            case '+' :
+            case '+':
                 return addExact(x, y);
-            case '-' :
+            case '-':
                 return subtractExact(x, y);
-            case '/' :
+            case '/':
                 return floorDiv(x, y);
-            case '*' :
+            case '*':
                 return multiplyExact(x, y);
-            case '%' :
+            case '%':
                 return floorMod(x, y);
-            case '^' :
+            case '^':
                 return (int) pow(x, y);
         }
         return 0;

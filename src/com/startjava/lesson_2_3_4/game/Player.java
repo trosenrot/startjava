@@ -22,7 +22,7 @@ public class Player {
         return enteredNumbers[i];
     }
 
-    public int[] outputNumbers() {
-        return enteredNumbers;
+    public int[] getEnteredNumbers() {
+        return Arrays.copyOf(enteredNumbers, 10);
     }
 }
