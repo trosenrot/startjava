@@ -20,7 +20,7 @@ public class Player {
         enteredNumbers[numberAttempts] = enteredNumber;
     }
 
-    public int setNumberAttempts() {
+    public int getNumberAttempts() {
         return numberAttempts;
     }
 

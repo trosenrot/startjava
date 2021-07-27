@@ -19,28 +19,26 @@ public class GuessNumber {
 
         for (int i = 0; i < 10; i++) {
             if (makeMove(playerOne)) {
-                outputNumbers(playerOne);
-                outputNumbers(playerTwo);
                 break;
-            }
-            if (i == 9) {
-                System.out.println("У " + playerOne.getName() + " закончились попытки");
             }
             if (makeMove(playerTwo)) {
-                outputNumbers(playerOne);
-                outputNumbers(playerTwo);
                 break;
             }
-            if (i == 9) {
-                System.out.println("У " + playerTwo.getName() + " закончились попытки");
-            }
         }
+
+        outputNumbers(playerOne);
+        playerOne.fillEnteredNumbers();
+        outputNumbers(playerTwo);
+        playerTwo.fillEnteredNumbers();
     }
 
     private boolean makeMove(Player player) {
         boolean check;
         inputNumber(player);
         check = checkNumber(player);
+        if (player.getNumberAttempts() == 9 && !check) {
+            System.out.println("У " + player.getName() + " закончились попытки");
+        }
         return check;
     }
 
@@ -56,7 +54,7 @@ public class GuessNumber {
         } else if (player.getEnteredNumber() < secretNumber) {
             System.out.println("Данное число меньше того, что загадал компьютер");
         } else {
-            System.out.println("Игрок " + player.getName() + " угадал число " + secretNumber + " с " + (player.setNumberAttempts() + 1) + " попытки");
+            System.out.println("Игрок " + player.getName() + " угадал число " + secretNumber + " с " + (player.getNumberAttempts() + 1) + " попытки");
             return true;
         }
         return false;
@@ -69,6 +67,5 @@ public class GuessNumber {
             System.out.print(number + " ");
         }
         System.out.println();
-        player.fillEnteredNumbers();
     }
 }
