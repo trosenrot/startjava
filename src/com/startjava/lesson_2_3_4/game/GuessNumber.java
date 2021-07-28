@@ -33,9 +33,8 @@ public class GuessNumber {
     }
 
     private boolean makeMove(Player player) {
-        boolean check;
         inputNumber(player);
-        check = checkNumber(player);
+        boolean check = checkNumber(player);
         if (player.getNumberAttempts() == 9 && !check) {
             System.out.println("У " + player.getName() + " закончились попытки");
         }
